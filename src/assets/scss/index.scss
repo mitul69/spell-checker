@@ -1,0 +1,12 @@
+.App {
+    flex:1;
+    > .container{
+        flex:1;
+        min-height: 100vh;
+        flex-direction: column;
+        display: flex;
+        .main-area{
+            flex: 1
+        }
+    }
+}

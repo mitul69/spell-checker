@@ -1,24 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter } from "react-router-dom";
+import AppRoute from "./routes/index";
+import { Container, ThemeProvider } from 'react-bootstrap';
+import Header from './modules/common/Header';
+import Footer from './modules/common/Footer';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './assets/scss/index.scss'
 
+/**
+ * Create Main App and configure
+ * Theme
+ * Router 
+ * Header
+ * Main Body
+ * Footer
+ */
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ThemeProvider
+        breakpoints={['xxxl', 'xxl', 'xl', 'lg', 'md', 'sm', 'xs', 'xxs']}
+        minBreakpoint="xxs"
+      >
+        <Container>
+          <BrowserRouter>
+            <Header />
+            <div className='main-area'>
+              <AppRoute />
+            </div>
+            <Footer />
+          </BrowserRouter>
+        </Container>
+      </ThemeProvider>
     </div>
   );
 }
